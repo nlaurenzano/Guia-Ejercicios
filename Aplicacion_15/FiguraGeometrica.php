@@ -24,7 +24,7 @@ public class FiguraGeometrica {
 	}
 
 	public function ToString() {
-		echo "Color: ".$this=>_color;
+		return "Color: ".$this=>_color;
 	}
 
 	public function Dibujar() {
@@ -59,6 +59,21 @@ public class FiguraGeometrica {
 			$_superficie = $_ladoUno * $_ladoDos;
 			$_perimetro = 2 * ($_ladoUno + $_ladoDos);
 		}
+
+		public function Dibujar() {
+		// Obtener toda la información completa del objeto, y luego dibujarlo por pantalla.
+
+			return "";
+		}
+
+		public function ToString() {
+			
+			echo parent::ToString() . " - Superficie: ".$_superficie . " - Perímetro: ".$_perimetro;
+
+			echo Dibujar();
+
+		}
+
 
 
 	}
