@@ -27,55 +27,49 @@ public class FiguraGeometrica {
 		return "Color: ".$this=>_color;
 	}
 
-	public function Dibujar() {
-	/*Dibujar, retornará un string (con el color que corresponda) 
+	/* Dibujar, retornará un string (con el color que corresponda) 
 	formando la figura geométrica del objeto que lo invoque 
-	(retornar una serie de asteriscos que modele el objeto). 
-	*/
+	(retornar una serie de asteriscos que modele el objeto).*/
+	public function Dibujar() {}
 
-	return "";
-	}
-
-	protected function CalcularDatos() {
-
-	}
-
-
+	/* CalcularDatos será invocado en el constructor de la clase derivada que corresponda, su funcionalidad será la de inicializar los atributos _superficie y _perimetro.*/
+	protected function CalcularDatos() {}
 
 }
 
-	public class Rectangulo extends FiguraGeometrica {
+public class Rectangulo extends FiguraGeometrica {
 
-		private $_ladoDos;
-		private $_ladoUno;
+	private $_ladoDos;
+	private $_ladoUno;
 
-		public function __construct($ladoUno, $ladoDos) {
-			$_ladoUno = $ladoUno;
-			$_ladoDos = $ladoDos;
-			CalcularDatos();
-		}
-
-		private function CalcularDatos() {
-			$_superficie = $_ladoUno * $_ladoDos;
-			$_perimetro = 2 * ($_ladoUno + $_ladoDos);
-		}
-
-		public function Dibujar() {
-		// Obtener toda la información completa del objeto, y luego dibujarlo por pantalla.
-
-			return "";
-		}
-
-		public function ToString() {
-			
-			echo parent::ToString() . " - Superficie: ".$_superficie . " - Perímetro: ".$_perimetro;
-
-			echo Dibujar();
-
-		}
-
-
-
+	public function __construct($ladoUno, $ladoDos) {
+		$_ladoUno = $ladoUno;
+		$_ladoDos = $ladoDos;
+		CalcularDatos();
 	}
+
+	private function CalcularDatos() {
+		$_superficie = $_ladoUno * $_ladoDos;
+		$_perimetro = 2 * ($_ladoUno + $_ladoDos);
+	}
+
+	public function Dibujar() {
+	// Obtener toda la información completa del objeto, y luego dibujarlo por pantalla.
+		echo ToString();
+
+		for ($i=0; $i<$ladoUno; $i++) {
+			echo "*";
+			for ($j=0; $j<$ladoDos; $j++) {
+				echo "*";
+			}
+		}
+	}
+
+	public function ToString() {
+		return parent::ToString() . " - Superficie: ".$_superficie . " - Perímetro: ".$_perimetro;
+	}
+
+
+}
 
 ¿>
