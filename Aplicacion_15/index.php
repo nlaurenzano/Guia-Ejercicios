@@ -14,7 +14,7 @@
 	(retornar una serie de asteriscos que modele el objeto). 
 	*/
 
-	include "FiguraGeometrica";
+	include "FiguraGeometrica.php";
 
 	$rectangulo = new Rectangulo(3,4);
 

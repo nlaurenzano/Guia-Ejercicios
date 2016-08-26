@@ -4,7 +4,7 @@
 /**
 * 
 */
-public class FiguraGeometrica {
+class FiguraGeometrica {
 
 	protected $_color;
 	protected $_perimetro;
@@ -17,14 +17,14 @@ public class FiguraGeometrica {
 	}
 
 	public function getColor() {
-		return $this=>_color;
+		return $this->_color;
 	}
 	public function setColor($color) {
-		$this=>_color = $color;
+		$this->_color = $color;
 	}
 
 	public function ToString() {
-		return "Color: ".$this=>_color;
+		return "Color: ".$this->_color;
 	}
 
 	/* Dibujar, retornará un string (con el color que corresponda) 
@@ -37,18 +37,19 @@ public class FiguraGeometrica {
 
 }
 
-public class Rectangulo extends FiguraGeometrica {
+class Rectangulo extends FiguraGeometrica {
 
 	private $_ladoDos;
 	private $_ladoUno;
 
 	public function __construct($ladoUno, $ladoDos) {
-		$_ladoUno = $ladoUno;
-		$_ladoDos = $ladoDos;
-		CalcularDatos();
+		$this->$_ladoUno = $ladoUno;
+		$this->$_ladoDos = $ladoDos;
+		
+		$this->CalcularDatos();
 	}
 
-	private function CalcularDatos() {
+	protected function CalcularDatos() {
 		$_superficie = $_ladoUno * $_ladoDos;
 		$_perimetro = 2 * ($_ladoUno + $_ladoDos);
 	}
@@ -72,4 +73,4 @@ public class Rectangulo extends FiguraGeometrica {
 
 }
 
-¿>
+?>
