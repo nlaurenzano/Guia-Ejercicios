@@ -16,7 +16,13 @@
 
 	include "FiguraGeometrica.php";
 
-	$rectangulo = new Rectangulo(3,4);
+	$rectangulo = new Rectangulo(2,2);
+	$rectangulo->Dibujar();
+
+	echo "<br /><br />";
+
+	$triangulo = new Triangulo(5,2);
+	$triangulo->Dibujar();
 
 	
 	?>
