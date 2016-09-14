@@ -11,10 +11,13 @@
 	ni saltos de líneas como palabras.
 	Los resultados mostrarlos en una tabla.*/
 	include_once("clases.php");
-	Archivo::MostrarRecuento(Archivo::ContarPalabras(Archivo::Leer()));
+	//Archivo::MostrarRecuento(Archivo::ContarPalabras(Archivo::Leer()));
 
-	
-
+	$palabras = Archivo::Leer();
+	if ($palabras != false) {
+		$palabrasContadas = Archivo::ContarPalabras($palabras);
+		Archivo::MostrarRecuento($palabrasContadas);
+	}
 
 
 	?>

@@ -12,24 +12,31 @@ class Archivo
 	}
 
 	public static function Leer() {
-		$archivo = fopen("../misArchivos/palabras.txt", "r");
+		$path = "misArchivos/palabras.txt";
+		$archivo = fopen($path, "r");
 		if ($archivo == false) {
+			echo "Error al leer el archivo.";
+			return false;
+		}
+
+		$texto = fread($archivo,filesize($path));
+		if ($texto == false) {
+			echo "Error al leer el archivo.";
 			return false;
 		}
 
 		$palabras = array();
-		$texto = fread($archivo,filesize($archivo));
-		$palabras[] = split($texto, " ");		// Solo separo por espacio
-
+		$palabras = explode(" ", $texto);		// Solo separo por espacio
+		
 		return $palabras;
 	}
 
-	public static ContarPalabras($palabras) {
+	public static function ContarPalabras($palabras) {
 		$contadorArray = array();	// Array asociativo con la cantidad de letras de la palabra como clave
 
 		foreach ($palabras as $palabra) {
 		// Recorre todas las palabras del array (todas las del archivo)
-			$longitud = str_len($palabra);
+			$longitud = strlen($palabra);
 
 			// Se busca el contador para palabras de longitud $contador
 			//		Si no existe, se agrega con valor 1
@@ -43,14 +50,14 @@ class Archivo
 		return $contadorArray;
 	}
 
-	public static MostrarRecuento($contador) {
+	public static function MostrarRecuento($contador) {
 
-		echo "<h2>En el archivo leído hay:</h2>"
-
-		foreach ($contador as $resultado) {
-			echo "<p>$resultado[1] palabras de $resultado[0] letras.</p>"
+		echo "<h2>En el archivo leído hay:</h2>";
+var_dump($contador);
+		foreach ($contador as $key => $resultado) {
+			echo "<p>$resultado palabras de $key letras.</p>";
 		}
 	}
 }
 
->?
+?>
